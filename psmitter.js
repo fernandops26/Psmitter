@@ -90,7 +90,7 @@
   }
 
   /**
-   * Get a listener list bind to determinate event
+   * Get a listeners list bind to determinate event
    * @param  {string} eventName name of event
    * @return {array}           list of listeners
    * @api public
