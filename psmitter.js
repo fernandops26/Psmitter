@@ -71,7 +71,7 @@
 
   /**
    * Register a listener that will be executed only once
-   * @param  {string}   eventName name of event
+   * @param  {string, array} eventName event's to listen
    * @param  {Function} fn        callback function to execute
    * @return {[type]}             current Psmitter instance
    * @api public
@@ -81,7 +81,7 @@
   }
 
   /**
-   * get a list of event names in the current Psmitter instance
+   * Get a list of event names in the current Psmitter instance
    * @return {array} array of event names
    * @api public
    */
@@ -112,7 +112,7 @@
   }
 
   /**
-   * number of listeners registered to an event
+   * Number of listeners registered to an event
    * @param  {string} eventName name of event
    * @return {integer}          number of listeners
    * @api public
@@ -126,7 +126,7 @@
   }
 
   /**
-   * remove an listener of a determinate event
+   * Remove an listener of a determinate event
    * @param  {string}   eventName name of event
    * @param  {Function} listener  callback to remove
    * @return {Psmitter}           current Psmitter instance
