@@ -1,8 +1,9 @@
 # Psmitter
 
+[![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](http://standardjs.com)
+
 [![Actual version published on NPM](https://badge.fury.io/js/psmitter.png)](https://www.npmjs.org/package/psmitter)
 [![npm module downloads per month](http://img.shields.io/npm/dm/psmitter.svg)](https://www.npmjs.org/package/psmitter)
-[![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](http://standardjs.com)
 
 ### An usefull event emitter for the Browser
 
@@ -53,7 +54,7 @@ Register a listener for one or more events
 
 ##### Params
 
-- **'event'|['eventA', 'eventB']** - `string|Array`: Event name or array of events names
+- **event | [eventA, eventB]** - `string|Array`: Event name or array of events names
 - **fn** - `function` : Callback function
 
 #### `emit(event, data)`
@@ -68,7 +69,7 @@ Register a listener that will be executed only once
 
 ##### Params
 
-- **event|[eventA, eventB]** - `string|Array`: Event name or array of events names
+- **event | [eventA, eventB]** - `string|Array`: Event name or array of events names
 - **fn** - `function` : Callback function
 
 
