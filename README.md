@@ -14,3 +14,29 @@
 ```shell
 npm install psmitter --save
 ```
+
+### Usage
+
+You can use this module of many ways:
+
+- By commonJS
+
+```
+let Psmitter = require('psmitter')
+```
+
+- By minFile:
+
+```
+<script src="psmiter.min.js" type="text/javascript"></script>
+```
+
+- By webpack
+
+Only add just with the others vendors files
+```
+var vendors = [
+  ...,
+  'psmitter'
+]
+```
