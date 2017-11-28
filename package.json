@@ -1,6 +1,6 @@
 {
   "name": "psmitter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Usefull event emitter for Browser",
   "main": "./psmitter.js",
   "scripts": {

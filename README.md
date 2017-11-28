@@ -7,17 +7,13 @@
 
 ### An usefull event emitter for the Browser
 
+## :cloud: Install
 
-## Getting started
-
-### Install
-
-#### Via `NPM`
 ```shell
 npm install psmitter --save
 ```
 
-### Usage
+## :fork_and_knife: Usage
 
 You can use this module of many ways:
 
@@ -47,7 +43,7 @@ var vendors = [
 ]
 ```
 
-### Documentation
+## :memo: Documentation
 
 #### `on(event | [eventA, eventB], fn)`
 Register a listener for one or more events
@@ -140,7 +136,7 @@ Check if exists almost one listener registered to a event
 - **boolean** : Return `true` if contains some listener, otherwise return `false`
 
 
-### Examples
+## :clipboard: Examples
 
 If you need to emit and listen some data
 ```
@@ -190,3 +186,7 @@ setInterval(function () {
 }, 1000)
 
 ```
+
+## :rocket: How to contribute :smiley:
+
+You have a improvement? or found a bug? See [how to contribute](https://github.com/fernandops26/Psmitter/blob/master/CONTRIBUTING.md)
