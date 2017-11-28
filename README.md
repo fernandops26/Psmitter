@@ -21,7 +21,7 @@ You can use this module of many ways:
 
 More info here [AMD](http://requirejs.org/docs/whyamd.html#amd)
 
-```
+```js
 require('psmitter', function (Psmitter) {
   return Psmitter
 })
@@ -29,14 +29,15 @@ require('psmitter', function (Psmitter) {
 
 - By minFile:
 
-```
+```html
 <script src="psmiter.min.js" type="text/javascript"></script>
 ```
 
 - By webpack
 
 Only add just with the others vendors files
-```
+
+```js
 var vendors = [
   ...,
   'psmitter'
@@ -139,7 +140,7 @@ Check if exists almost one listener registered to a event
 ## :clipboard: Examples
 
 If you need to emit and listen some data
-```
+```js
 // button[id="message"]
 var button = document.getElementById('message')
 button.addEventListener('click', function () {
@@ -154,7 +155,7 @@ Psmitter.on('message', function (data) {
 If you needs to remove and newly register an listener
 
 #### index.html
-```
+```html
 <body>
   <input type="button" value="Remove listener" id="removeListener">
   <input type="button" value="Register Listener" id="registerListener">
@@ -163,7 +164,7 @@ If you needs to remove and newly register an listener
 ```
 
 #### file.js
-```
+```js
 var time = document.getElementById('time')
 var commonListener = function (data) {
   time.innerHTML = data
