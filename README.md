@@ -107,6 +107,7 @@ Number of listeners registered to an event
 #### `removeListener(event, fn)`
 
 Remove an listener of a determinate event
+
 ##### Params
 
 - **event** - `string`: Event name

@@ -30,7 +30,7 @@
     }
 
     for (var i = 0; i < toListen.length; i++) {
-      let event = toString(toListen[i])
+      var event = toString(toListen[i])
       if (!this.events[event]) {
         this.events[event] = []
       }
