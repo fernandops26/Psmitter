@@ -7,17 +7,13 @@
 
 ### An usefull event emitter for the Browser
 
+## :cloud: Install
 
-## Getting started
-
-### Install
-
-#### Via `NPM`
 ```shell
 npm install psmitter --save
 ```
 
-### Usage
+## :fork_and_knife: Usage
 
 You can use this module of many ways:
 
@@ -47,7 +43,7 @@ var vendors = [
 ]
 ```
 
-### Documentation
+## :memo: Documentation
 
 #### `on(event | [eventA, eventB], fn)`
 Register a listener for one or more events
@@ -86,7 +82,7 @@ Get a listeners list binded to determinate event
 
 ##### Params
 
-- **event** - `string|Array`: Event name
+- **event** - `string`: Event name
 
 ##### Return
 
@@ -107,6 +103,7 @@ Number of listeners registered to an event
 #### `removeListener(event, fn)`
 
 Remove an listener of a determinate event
+
 ##### Params
 
 - **event** - `string`: Event name
@@ -137,3 +134,59 @@ Check if exists almost one listener registered to a event
 ##### Return
 
 - **boolean** : Return `true` if contains some listener, otherwise return `false`
+
+
+## :clipboard: Examples
+
+If you need to emit and listen some data
+```
+// button[id="message"]
+var button = document.getElementById('message')
+button.addEventListener('click', function () {
+  Psmitter.emit('message', 'hello world from Psmitter')
+})
+
+Psmitter.on('message', function (data) {
+  console.log(data)
+})
+```
+
+If you needs to remove and newly register an listener
+
+#### index.html
+```
+<body>
+  <input type="button" value="Remove listener" id="removeListener">
+  <input type="button" value="Register Listener" id="registerListener">
+  <div id="time"></div>
+</body>
+```
+
+#### file.js
+```
+var time = document.getElementById('time')
+var commonListener = function (data) {
+  time.innerHTML = data
+}
+
+Psmitter.on('time', commonListener)
+
+var removeButton = document.getElementById('removeListener')
+removeButton.addEventListener('click', function () {
+  Psmitter.removeListener('time', commonListener)
+})
+
+var registerButton = document.getElementById('registerListener')
+registerButton.addEventListener('click', function () {
+  Psmitter.on('time', commonListener)
+})
+
+setInterval(function () {
+  Psmitter.emit('time', new Date())
+}, 1000)
+
+```
+
+## :rocket: How to contribute :smiley:
+
+You have a improvement? or found a bug? See [how to contribute](https://github.com/fernandops26/Psmitter/blob/master/CONTRIBUTING.md)
