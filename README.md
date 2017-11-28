@@ -86,7 +86,7 @@ Get a listeners list binded to determinate event
 
 ##### Params
 
-- **event** - `string|Array`: Event name
+- **event** - `string`: Event name
 
 ##### Return
 
