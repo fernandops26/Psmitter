@@ -26,15 +26,16 @@
   Psmitter.prototype.on = function (eventNames, fn) {
     var toListen = eventNames
     if (!Array.isArray(eventNames)) {
-      toListen = [eventNames]
+      toListen = [toString(eventNames)]
     }
 
     for (var i = 0; i < toListen.length; i++) {
-      if (!this.events[toListen[i]]) {
-        this.events[toListen[i]] = []
+      let event = toString(toListen[i])
+      if (!this.events[event]) {
+        this.events[event] = []
       }
 
-      this.events[toListen[i]].push(fn)
+      this.events[event].push(fn)
     }
 
     return this
@@ -48,6 +49,7 @@
    * @api public
    */
   Psmitter.prototype.emit = function (eventName, data) {
+    eventName = toString(eventName)
     if (!this.events[eventName]) {
       return false
     }
@@ -96,6 +98,7 @@
    * @api public
    */
   Psmitter.prototype.getListeners = function (eventName) {
+    eventName = toString(eventName)
     if (!this.events[eventName]) {
       return []
     }
@@ -118,6 +121,7 @@
    * @api public
    */
   Psmitter.prototype.countListeners = function (eventName) {
+    eventName = toString(eventName)
     if (!this.events[eventName]) {
       return false
     }
@@ -133,6 +137,7 @@
    * @api public
    */
   Psmitter.prototype.removeListener = function (eventName, listener) {
+    eventName = toString(eventName)
     if (this.events[eventName]) {
       var funcs = this.events[eventName]
 
@@ -157,7 +162,7 @@
    * @api public
    */
   Psmitter.prototype.removeAllListeners = function (eventName) {
-    delete this.events[eventName]
+    delete this.events[toString(eventName)]
   }
 
   /**
@@ -166,6 +171,7 @@
    * @api public
    */
   Psmitter.prototype.removeLastListener = function (eventName) {
+    eventName = toString(eventName)
     if (this.events[eventName]) {
       this.events[eventName].length > 1 ? this.events[eventName].pop() : this.removeAllListeners(eventName)
     }
@@ -178,6 +184,7 @@
    * @api public
    */
   Psmitter.prototype.hasSomeListener = function (eventName) {
+    eventName = toString(eventName)
     return !!this.events[eventName] && this.events[eventName].length > 0
   }
 
@@ -189,6 +196,16 @@
    */
   function isFunction (fn) {
     return {}.toString.call(fn) === '[object Function]'
+  }
+
+  /**
+   * Convert any value to string
+   * @param  {mixed} value any param
+   * @return {string}      return the value in string format
+   * @api private
+   */
+  function toString(value) {
+    return value + ''
   }
 
   /**
