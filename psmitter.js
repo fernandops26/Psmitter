@@ -4,7 +4,7 @@
  * @author Fernando Palacios <jf.palacios.sz@gmail.com>
  * @license MIT
  */
-(function () {
+(function (context) {
   'use strict'
 
   /**
@@ -208,11 +208,14 @@
     return value + ''
   }
 
+  var instance
+
   /**
    * Psmitter instance
    * check if already exist a Psmitter instance otherwise create one
    */
-  if (!window.Psmitter) {
-    window.Psmitter = new Psmitter()
-  }
-})()
+    if (!instance) {
+        instance = new Psmitter()
+    }
+    context.Psmitter = instance
+})(this)
