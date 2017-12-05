@@ -1,13 +1,13 @@
 {
   "name": "psmitter",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Usefull event emitter for Browser",
   "main": "./psmitter.js",
   "scripts": {
     "lint": "eslint ./Psmitter.js",
     "build": "webpack",
     "prebuild": "npm run lint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape ./test/index.js"
   },
   "repository": {
     "type": "git",
@@ -27,12 +27,13 @@
   },
   "homepage": "https://github.com/fernandops26/Psmitter#readme",
   "devDependencies": {
-    "eslint": "^4.11.0",
+    "eslint": "4.11.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
-    "webpack": "^3.8.1"
+    "webpack": "^3.8.1",
+    "tape": "4.8.0"
   }
 }
