@@ -7,6 +7,9 @@
 
 ### An usefull event emitter for the Browser
 
+## :runner: Migration
+Check [migration](https://github.com/fernandops26/Psmitter/blob/master/MIGRATION.md) file to 1.0.0.
+
 ## :cloud: Install
 
 ```shell
@@ -20,18 +23,20 @@ You can use this module of many ways:
 - By minFile:
 
 ```html
+<!-- index.html -->
 <script src="psmiter.min.js" type="text/javascript"></script>
 ```
 ```js
-  let myEmitter = new Psmitter()
+// file.js
+let myEmitter = new Psmitter()
 ```
 
 - By require
 
 ```js
+// file.js
 const Psmitter = require('psmitter').Psmitter
-```
-```js
+
 let myEmitter = new Psmitter()
 ```
 
@@ -40,12 +45,14 @@ let myEmitter = new Psmitter()
 Only add just with the others vendors files
 
 ```js
+// webpack.config.js
 var vendors = [
   ...,
   'psmitter'
 ]
 ```
 ```js
+// file.js
 let myEmitter = new Psmitter()
 ```
 
@@ -197,3 +204,11 @@ setInterval(function () {
 ## :rocket: How to contribute :smiley:
 
 You have a improvement? or found a bug? See [how to contribute](https://github.com/fernandops26/Psmitter/blob/master/CONTRIBUTING.md)
+
+## :tada: Where is this library used?
+If you are using this library in one of your projects, add it in this list.
+
+ - `proyect name with link`(Author) ---> description
+
+## :scroll: License
+[MIT][license] © [Fernando Palacios]
