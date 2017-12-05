@@ -208,14 +208,15 @@
     return value + ''
   }
 
-  var instance
-
   /**
    * Psmitter instance
    * check if already exist a Psmitter instance otherwise create one
    */
-    if (!instance) {
-        instance = new Psmitter()
-    }
-    context.Psmitter = instance
+   if (typeof define === 'function' && define.amd) {
+     define(function() {
+       return Psmitter
+     });
+   } else {
+     context.Psmitter = Psmitter
+   }
 })(this)

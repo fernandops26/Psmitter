@@ -17,20 +17,22 @@ npm install psmitter --save
 
 You can use this module of many ways:
 
-- By require
-
-More info here [AMD](http://requirejs.org/docs/whyamd.html#amd)
-
-```js
-require('psmitter', function (Psmitter) {
-  return Psmitter
-})
-```
-
 - By minFile:
 
 ```html
 <script src="psmiter.min.js" type="text/javascript"></script>
+```
+```js
+  let myEmitter = new Psmitter()
+```
+
+- By require
+
+```js
+const Psmitter = require('psmitter').Psmitter
+```
+```js
+let myEmitter = new Psmitter()
 ```
 
 - By webpack
@@ -42,6 +44,9 @@ var vendors = [
   ...,
   'psmitter'
 ]
+```
+```js
+let myEmitter = new Psmitter()
 ```
 
 ## :memo: Documentation
@@ -141,13 +146,14 @@ Check if exists almost one listener registered to a event
 
 If you need to emit and listen some data
 ```js
+
 // button[id="message"]
 var button = document.getElementById('message')
 button.addEventListener('click', function () {
-  Psmitter.emit('message', 'hello world from Psmitter')
+  myEmitter.emit('message', 'hello world from Psmitter')
 })
 
-Psmitter.on('message', function (data) {
+myEmitter.on('message', function (data) {
   console.log(data)
 })
 ```
@@ -170,20 +176,20 @@ var commonListener = function (data) {
   time.innerHTML = data
 }
 
-Psmitter.on('time', commonListener)
+myEmitter.on('time', commonListener)
 
 var removeButton = document.getElementById('removeListener')
 removeButton.addEventListener('click', function () {
-  Psmitter.removeListener('time', commonListener)
+  myEmitter.removeListener('time', commonListener)
 })
 
 var registerButton = document.getElementById('registerListener')
 registerButton.addEventListener('click', function () {
-  Psmitter.on('time', commonListener)
+  myEmitter.on('time', commonListener)
 })
 
 setInterval(function () {
-  Psmitter.emit('time', new Date())
+  myEmitter.emit('time', new Date())
 }, 1000)
 
 ```
