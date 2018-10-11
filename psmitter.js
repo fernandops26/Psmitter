@@ -4,7 +4,7 @@
  * @author Fernando Palacios <jf.palacios.sz@gmail.com>
  * @license MIT
  */
-(function () {
+(function (context) {
   'use strict'
 
   /**
@@ -12,7 +12,7 @@
    * @constructor
    * @api public
    */
-  var Psmitter = function () {
+  const Psmitter = function () {
     this.events = {}
   }
 
@@ -24,13 +24,13 @@
    * @api public
    */
   Psmitter.prototype.on = function (eventNames, fn) {
-    var toListen = eventNames
+    let toListen = eventNames
     if (!Array.isArray(eventNames)) {
       toListen = [toString(eventNames)]
     }
 
-    for (var i = 0; i < toListen.length; i++) {
-      var event = toString(toListen[i])
+    for (let i = 0; i < toListen.length; i++) {
+      const event = toString(toListen[i])
       if (!this.events[event]) {
         this.events[event] = []
       }
@@ -54,10 +54,10 @@
       return false
     }
 
-    var funcs = this.events[eventName]
+    const funcs = this.events[eventName]
 
-    for (var i = 0; i < funcs.length; i++) {
-      var fn = funcs[i] || function () {}
+    for (let i = 0; i < funcs.length; i++) {
+      const fn = funcs[i] || function () {}
 
       if (isFunction(fn)) {
         fn(data)
@@ -79,7 +79,7 @@
    * @api public
    */
   Psmitter.prototype.once = function (eventName, fn) {
-    return this.on(eventName, {fn: fn})
+    return this.on(eventName, { fn: fn })
   }
 
   /**
@@ -103,7 +103,7 @@
       return []
     }
 
-    var clearedListeners = this.events[eventName].map(function (fn) {
+    const clearedListeners = this.events[eventName].map(function (fn) {
       if (!isFunction(fn)) {
         return fn.fn
       }
@@ -139,9 +139,9 @@
   Psmitter.prototype.removeListener = function (eventName, listener) {
     eventName = toString(eventName)
     if (this.events[eventName]) {
-      var funcs = this.events[eventName]
+      let funcs = this.events[eventName]
 
-      for (var i = 0; i < funcs.length; i++) {
+      for (let i = 0; i < funcs.length; i++) {
         if (!isFunction(funcs[i])) {
           funcs[i] = funcs[i].fn
         }
@@ -205,14 +205,18 @@
    * @api private
    */
   function toString(value) {
-    return value + ''
+    return `${value}`
   }
 
   /**
    * Psmitter instance
    * check if already exist a Psmitter instance otherwise create one
    */
-  if (!window.Psmitter) {
-    window.Psmitter = new Psmitter()
-  }
-})()
+   if (typeof define === 'function' && define.amd) {
+     define(function() {
+       return Psmitter
+     });
+   } else {
+     context.Psmitter = Psmitter
+   }
+})(this)

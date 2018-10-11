@@ -1,3 +1,4 @@
+![PSMITTER](https://github.com/fernandops26/Psmitter/blob/master/test/assets/img/psmitter-logo.png)
 # Psmitter
 
 [![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](http://standardjs.com)
@@ -6,6 +7,9 @@
 [![npm module downloads per month](http://img.shields.io/npm/dm/psmitter.svg)](https://www.npmjs.org/package/psmitter)
 
 ### An usefull event emitter for the Browser
+
+## :runner: Migration
+Check [migration](https://github.com/fernandops26/Psmitter/blob/master/MIGRATION.md) file to 1.0.0.
 
 ## :cloud: Install
 
@@ -17,20 +21,24 @@ npm install psmitter --save
 
 You can use this module of many ways:
 
-- By require
-
-More info here [AMD](http://requirejs.org/docs/whyamd.html#amd)
-
-```js
-require('psmitter', function (Psmitter) {
-  return Psmitter
-})
-```
-
 - By minFile:
 
 ```html
+<!-- index.html -->
 <script src="psmiter.min.js" type="text/javascript"></script>
+```
+```js
+// file.js
+let myEmitter = new Psmitter()
+```
+
+- By require
+
+```js
+// file.js
+const Psmitter = require('psmitter').Psmitter
+
+let myEmitter = new Psmitter()
 ```
 
 - By webpack
@@ -38,10 +46,15 @@ require('psmitter', function (Psmitter) {
 Only add just with the others vendors files
 
 ```js
+// webpack.config.js
 var vendors = [
   ...,
   'psmitter'
 ]
+```
+```js
+// file.js
+let myEmitter = new Psmitter()
 ```
 
 ## :memo: Documentation
@@ -141,13 +154,14 @@ Check if exists almost one listener registered to a event
 
 If you need to emit and listen some data
 ```js
+
 // button[id="message"]
 var button = document.getElementById('message')
 button.addEventListener('click', function () {
-  Psmitter.emit('message', 'hello world from Psmitter')
+  myEmitter.emit('message', 'hello world from Psmitter')
 })
 
-Psmitter.on('message', function (data) {
+myEmitter.on('message', function (data) {
   console.log(data)
 })
 ```
@@ -170,20 +184,20 @@ var commonListener = function (data) {
   time.innerHTML = data
 }
 
-Psmitter.on('time', commonListener)
+myEmitter.on('time', commonListener)
 
 var removeButton = document.getElementById('removeListener')
 removeButton.addEventListener('click', function () {
-  Psmitter.removeListener('time', commonListener)
+  myEmitter.removeListener('time', commonListener)
 })
 
 var registerButton = document.getElementById('registerListener')
 registerButton.addEventListener('click', function () {
-  Psmitter.on('time', commonListener)
+  myEmitter.on('time', commonListener)
 })
 
 setInterval(function () {
-  Psmitter.emit('time', new Date())
+  myEmitter.emit('time', new Date())
 }, 1000)
 
 ```
@@ -191,3 +205,11 @@ setInterval(function () {
 ## :rocket: How to contribute :smiley:
 
 You have a improvement? or found a bug? See [how to contribute](https://github.com/fernandops26/Psmitter/blob/master/CONTRIBUTING.md)
+
+## :tada: Where is this library used?
+If you are using this library in one of your projects, add it in this list.
+
+ - `proyect name with link`(Author) ---> description
+
+## :scroll: License
+[MIT][license] © [Fernando Palacios]
