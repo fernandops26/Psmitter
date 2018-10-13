@@ -204,7 +204,7 @@
    * @return {string}      return the value in string format
    * @api private
    */
-  function toString(value) {
+  function toString (value) {
     return `${value}`
   }
 
@@ -213,9 +213,9 @@
    * check if already exist a Psmitter instance otherwise create one
    */
    if (typeof define === 'function' && define.amd) {
-     define(function() {
+     define(function () {
        return Psmitter
-     });
+     })
    } else {
      context.Psmitter = Psmitter
    }

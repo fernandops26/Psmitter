@@ -1,4 +1,4 @@
-![PSMITTER](https://github.com/fernandops26/Psmitter/blob/master/test/assets/img/psmitter-logo.png)
+![PSMITTER](https://github.com/fernandops26/Psmitter/blob/master/test/assets/psmitter-logo.png)
 # Psmitter
 
 [![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](http://standardjs.com)

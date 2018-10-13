@@ -9,7 +9,7 @@ test('check initial Psmitter', (t) => {
   t.assert(myEmitter.hasOwnProperty('events'))
   t.equal(typeof myEmitter.events, 'object')
   t.equal(Object.keys(myEmitter).length, 1)
-});
+})
 
 test('count listeners, events, ', (t) => {
   const myEventName = 'test an event'
@@ -18,10 +18,10 @@ test('count listeners, events, ', (t) => {
   myEmitter.on(myEventName, () => {})
   t.equal(myEmitter.countListeners(myEventName), 1)
 
-  const totalEvents = myEmitter.getEvents();
+  const totalEvents = myEmitter.getEvents()
   t.equal(totalEvents.length, 1)
   t.assert(totalEvents.includes(myEventName))
-});
+})
 
 test('emit an event', (t) => {
   const myEventName = 'secondEventName',
@@ -31,13 +31,13 @@ test('emit an event', (t) => {
   myEmitter
   .on(myEventName, (data) => t.equal(data, myEventData))
   .emit(myEventName, myEventData)
-});
+})
 
 test('execute listener only once', (t) => {
   const myEventName = 'thirdEventName'
   let executionCounter = 0
 
-  t.plan(1);
+  t.plan(1)
   myEmitter.once(myEventName, () => executionCounter++)
   myEmitter
   .emit(myEventName)
